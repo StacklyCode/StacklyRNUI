@@ -1,5 +1,5 @@
 {
-  "name": "@stacklycorern/ui",
+  "name": "@stacklycore/rnui",
   "version": "0.0.0",
   "main": "build/index.js",
   "publishConfig": {
