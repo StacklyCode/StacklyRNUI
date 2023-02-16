@@ -1,15 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { AtomText } from "./build";
+// import { AtomText } from "./build";
 import AtomWrapperComponet from "./core/@atoms/AtomWrapper";
 import AtomTextComponet from "./core/@atoms/AtomText";
+import { css } from "styled-components/native";
 
 export default function App() {
   return (
     <AtomWrapperComponet>
       <StatusBar style="light" />
-      <AtomTextComponet textTest="" />
-      <AtomText textTest="" />
+      <AtomTextComponet css={() => css``}>texto</AtomTextComponet>
     </AtomWrapperComponet>
   );
 }

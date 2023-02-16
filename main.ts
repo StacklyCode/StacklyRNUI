@@ -1,1 +1,2 @@
-export * from './core/@atoms';
+export * from "styled-components/native";
+export * from "./core/@atoms";

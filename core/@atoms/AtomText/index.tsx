@@ -1,12 +1,10 @@
-import React, { FC } from "react";
-import { Text } from "react-native";
+import { FC } from 'react';
+import { AtomTextStyled } from './styled';
+import { AtomTextTypes } from './types';
 
-interface AtomTextComponentType {
-  textTest?: string;
-}
-
-const AtomTextComponent: FC<AtomTextComponentType> = (props) => {
-  const { textTest } = props;
-  return <Text> {textTest} </Text>;
+const AtomText: FC<AtomTextTypes> = (props) => {
+  const { children } = props;
+  return <AtomTextStyled {...props}>{children}</AtomTextStyled>;
 };
-export default AtomTextComponent;
+
+export default AtomText;

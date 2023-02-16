@@ -26,12 +26,12 @@
     "paths": {
       // "@ixulabs/nativeui": ["index.ts"],
       "@atoms": ["./core/@atoms/index.ts"],
-      "@atoms/*": ["./core/@atoms/*"]
+      "@atoms/*": ["./core/@atoms/*"],
       // "components/*": ["src/components/*"],
       // "context/*": ["src/context/*"],
       // "gql/*": ["src/gql/*"],
-      // "types/*": ["src/types/*"],
-      // "utils/*": ["src/utils/*"]
+      "~types/*": ["./core/types/*"],
+      "~utils/*": ["./core/utils/*"]
     }
   },
   "include": ["**/*", "**/*x", "**/*.ts", "**/*.tsx"],
