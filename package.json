@@ -10,7 +10,7 @@
   "files": [
     "build"
   ],
-  "types": "./build/bulid/main.d.ts",
+  "types": "./build/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/StacklyCode/StacklyRNUI.git"
@@ -23,7 +23,9 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
+    "prebuild": "node ./tools/copyFile.js",
     "build": "rollup -c",
+    "postbuild": "node ./tools/delete.js",
     "test": "rimraf build & rollup -c"
   },
   "dependencies": {
