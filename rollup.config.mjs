@@ -1,4 +1,4 @@
-import nodeResolve from "@rollup/plugin-node-resolve";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import alias from "@rollup/plugin-alias";
@@ -8,7 +8,7 @@ import multiEntry from "@rollup/plugin-multi-entry";
 
 const config = [
   {
-    input: ["main.ts"],
+    input: "main.ts",
     output: [
       {
         file: "build/index.js",
@@ -20,7 +20,9 @@ const config = [
     plugins: [
       json(),
       peerDepsExternal(),
-      nodeResolve(),
+      nodeResolve({
+        browser: true,
+      }),
       commonjs(),
       typescript({
         outputToFilesystem: true,
