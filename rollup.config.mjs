@@ -1,4 +1,4 @@
-import { nodeResolve } from "@rollup/plugin-node-resolve";
+import nodeResolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import alias from "@rollup/plugin-alias";
@@ -17,12 +17,12 @@ const config = [
       },
     ],
     plugins: [
+      json(),
       peerDepsExternal(),
+      commonjs(),
       nodeResolve({
         browser: true,
       }),
-      json(),
-      commonjs(),
       // alias({
       //   applicationRoot: `${__dirname}`,
       // }),
