@@ -3,35 +3,28 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import alias from "@rollup/plugin-alias";
 import json from "@rollup/plugin-json";
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
 const config = [
   {
     input: "main.ts",
-    external: [
-      "react",
-      "react-native",
-      "react-dom",
-      "react-native-animatable",
-      "react-native-gesture-handler",
-      "react-native-reanimated",
-    ],
+    external: ["react", "react-native", "react-dom", "react-native-reanimated"],
     output: [
       {
         file: "build/index.js",
         format: "cjs",
-        sourcemap: true,
+        // sourcemap: true,
       },
     ],
     plugins: [
+      peerDepsExternal(),
       nodeResolve({
         browser: true,
       }),
-      peerDepsExternal(),
-      commonjs(),
       json(),
+      commonjs(),
       // alias({
-
+      //   applicationRoot: `${__dirname}`,
       // }),
       typescript({
         outputToFilesystem: true,
