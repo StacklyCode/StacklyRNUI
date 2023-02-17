@@ -3,6 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import alias from "@rollup/plugin-alias";
 import json from "@rollup/plugin-json";
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 const config = [
   {
@@ -26,6 +27,7 @@ const config = [
       nodeResolve({
         browser: true,
       }),
+      peerDepsExternal(),
       commonjs(),
       json(),
       // alias({
