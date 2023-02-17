@@ -7,7 +7,14 @@ import json from "@rollup/plugin-json";
 const config = [
   {
     input: "main.ts",
-    external: ["react", "react-native", "react-dom", "react-native-reanimated"],
+    external: [
+      "react",
+      "react-native",
+      "react-dom",
+      "react-native-animatable",
+      "react-native-gesture-handler",
+      "react-native-reanimated",
+    ],
     output: [
       {
         file: "build/index.js",
