@@ -1,23 +1,10 @@
-import React, { FC } from "react";
-import { View } from "react-native";
+import React, { FC } from 'react';
+import { AtomViewStyled } from './styled';
+import { AtomWrapperProps } from './types';
 
-interface AtomWrapperComponetType {
-  children?: React.ReactNode;
-}
-
-const AtomWrapperComponet: FC<AtomWrapperComponetType> = (props) => {
+const AtomWrapper: FC<AtomWrapperProps> = (props) => {
   const { children } = props;
-  return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "red",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      {children}
-    </View>
-  );
+  return <AtomViewStyled {...props}>{children}</AtomViewStyled>;
 };
-export default AtomWrapperComponet;
+
+export default AtomWrapper;

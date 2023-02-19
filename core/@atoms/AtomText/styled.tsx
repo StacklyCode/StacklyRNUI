@@ -12,6 +12,6 @@ export const AtomTextStyled = styled(MotiText)<AtomTextTypes>((props) => {
     margin: 0;
     width: auto;
     text-align: left;
-    ${props?.css}
+    ${props?.customCSS}
   `;
 });
