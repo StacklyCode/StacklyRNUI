@@ -26,12 +26,12 @@ const AtomIcon: FC<iconType> = (props) => {
   }, [uri, source]);
 
   const colors = useMemo(() => {
-    if (xml.color === "original") return {};
+    if (xml?.color === "original") return {};
     return {
       // fill: theme.icon.color.accent,
       // stroke: theme.icon.color.accent,
-      fill: xml.color,
-      stroke: xml.color,
+      fill: xml?.color,
+      stroke: xml?.color,
     };
   }, [xml.color]);
   if (!iconState) return null;
