@@ -1,6 +1,7 @@
+import { TouchableOpacityProps } from "react-native";
 import { FlattenSimpleInterpolation } from "styled-components";
 
-export interface AtomButtonTypes {
+export interface AtomButtonTypes extends TouchableOpacityProps {
   color?: string;
   backgroundColor?: string;
   border?: string;

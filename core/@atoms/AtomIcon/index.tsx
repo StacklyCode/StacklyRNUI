@@ -1,7 +1,7 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState, useEffect, useMemo } from "react";
 import { View, StyleSheet } from "react-native";
 import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
-import { SvgXml, XmlProps } from "react-native-svg";
+import { SvgXml } from "react-native-svg";
 import { iconType } from "./types";
 
 const defaultIcon = `https://storage.googleapis.com/cdn-bucket-ixulabs-platform/STCO-0001/warning-svgrepo-com.svg`;
@@ -16,40 +16,39 @@ const fetchIcon = async (url: string, state: (e: string) => void) => {
   }
 };
 
-// & XmlProps
-
 const AtomIcon: FC<iconType> = (props) => {
-  const { icon, source } = props;
+  const { uri, source, xml } = props;
   const [iconState, stateIcon] = useState(null);
-
+  const styled = styles(props);
   useEffect(() => {
-    const url = icon ? icon : resolveAssetSource(source)?.uri;
+    const url = uri ? uri : resolveAssetSource(source)?.uri;
     fetchIcon(url, (data) => stateIcon(data.replace(/fill\s*=\s*".*?"/g, "")));
-  }, [icon]);
+  }, [uri, source]);
 
+  const colors = useMemo(() => {
+    if (xml.color === "original") return {};
+    return {
+      // fill: theme.icon.color.accent,
+      // stroke: theme.icon.color.accent,
+      fill: xml.color,
+      stroke: xml.color,
+    };
+  }, [xml.color]);
+  if (!iconState) return null;
   return (
-    <View style={styles.container}>
-      {iconState && (
-        <SvgXml
-          color="white"
-          fill="white"
-          stroke="white"
-          width={80}
-          height={80}
-          xml={iconState}
-        />
-      )}
+    <View style={styled.container}>
+      <SvgXml width={80} height={80} {...colors} {...xml} xml={iconState} />
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "red",
-  },
-});
+const styles = (props: iconType) =>
+  StyleSheet.create({
+    container: {
+      alignItems: "center",
+      justifyContent: "center",
+      ...(props?.container ?? {}),
+    },
+  });
 
 export default AtomIcon;

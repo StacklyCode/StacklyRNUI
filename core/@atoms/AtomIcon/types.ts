@@ -1,6 +1,11 @@
-import { ImageResolvedAssetSource } from "react-native";
+import { ImageResolvedAssetSource, ViewStyle } from "react-native";
+import { XmlProps } from "react-native-svg";
+
+type XmlPropsNew = Omit<XmlProps, "xml">;
 
 export type iconType = {
-  icon?: string;
+  uri?: string;
   source?: ImageResolvedAssetSource;
+  container?: ViewStyle;
+  xml?: XmlPropsNew;
 };

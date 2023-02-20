@@ -6,12 +6,12 @@ import { AtomTextTypes } from "./types";
 
 export const AtomTextStyled = styled(MotiText)<AtomTextTypes>((props) => {
   return css`
-    font-size: 14px;
-    font-weight: normal;
-    color: "#000000";
-    margin: 0;
-    width: auto;
-    text-align: left;
+    font-size: ${props?.fontSize ?? "16px"};
+    font-weight: ${props?.fontWeight ?? "normal"};
+    color: ${props?.color ?? props?.theme?.text?.color?.primary ?? "#000000"};
+    margin: ${props?.margin ?? 0};
+    width: ${props?.width ?? "auto"};
+    text-align: ${props?.textAlign ?? "left"};
     ${props?.customCSS}
   `;
 });
