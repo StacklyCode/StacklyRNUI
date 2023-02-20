@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { AtomText, AtomWrapper, css, AtomIcon } from "./build";
+import { AtomText, AtomWrapper, css } from "./build";
 import AtomWrapperComponet from "./core/@atoms/AtomWrapper";
 import AtomTextComponet from "./core/@atoms/AtomText";
-// import AtomIcon from "./core/@atoms/AtomIcon2";
+import AtomIcon from "./core/@atoms/AtomIcon";
 // const svg = require("./assets/userroles.svg");
 // import { css } from "styled-components/native";
 
@@ -17,16 +17,16 @@ export default function App() {
       `}
     >
       <StatusBar style="light" />
-      <AtomText
+      {/* <AtomText
         css={() => css`
           font-size: 30px;
         `}
       >
         texto
-      </AtomText>
+      </AtomText> */}
       <AtomIcon
-      icon="https://storage.googleapis.com/cdn-bucket-ixulabs-platform/IXU-0001/APPS/Proa/icons/search.svg"
-      // source={svg}
+        // xml={{ color: "red" }}
+        // source={svg}
       />
     </AtomWrapperComponet>
   );

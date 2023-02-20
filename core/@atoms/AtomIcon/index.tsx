@@ -26,14 +26,14 @@ const AtomIcon: FC<iconType> = (props) => {
   }, [uri, source]);
 
   const colors = useMemo(() => {
-    if (xml?.color === "original") return {};
+    if (xml?.color === ("original" || undefined || null)) return {};
     return {
       // fill: theme.icon.color.accent,
       // stroke: theme.icon.color.accent,
       fill: xml?.color,
       stroke: xml?.color,
     };
-  }, [xml.color]);
+  }, [xml?.color]);
   if (!iconState) return null;
   return (
     <View style={styled.container}>
