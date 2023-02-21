@@ -1,12 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { AtomButton, AtomText, AtomWrapper, css } from "../build";
+import { AtomButton, AtomText, AtomWrapper } from "../build";
 import AtomWrapperComponet from "../core/@atoms/AtomWrapper";
 import AtomTextComponet from "../core/@atoms/AtomText";
 import AtomIcon from "../core/@atoms/AtomIcon";
 import useTheme from "../core/hook/useTheme";
 import { FC } from "react";
 import { AppRegistry, Appearance, useColorScheme } from "react-native";
+import { css } from "styled-components/native";
 
 const ScreenIndex: FC = () => {
   const [theme, toggle, { key, keyTheme }] = useTheme();
