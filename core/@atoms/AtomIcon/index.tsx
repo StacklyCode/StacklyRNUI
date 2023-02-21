@@ -3,6 +3,7 @@ import { View, StyleSheet } from "react-native";
 import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 import { SvgXml } from "react-native-svg";
 import { iconType } from "./types";
+import useTheme from "../../hook/useTheme";
 
 const defaultIcon = `https://storage.googleapis.com/cdn-bucket-ixulabs-platform/STCO-0001/warning-svgrepo-com.svg`;
 
@@ -20,6 +21,7 @@ const AtomIcon: FC<iconType> = (props) => {
   const { uri, source, xml } = props;
   const [iconState, stateIcon] = useState(null);
   const styled = styles(props);
+  const [theme] = useTheme();
   useEffect(() => {
     const url = uri ? uri : resolveAssetSource(source)?.uri;
     fetchIcon(url, (data) => stateIcon(data.replace(/fill\s*=\s*".*?"/g, "")));
@@ -30,10 +32,10 @@ const AtomIcon: FC<iconType> = (props) => {
     return {
       // fill: theme.icon.color.accent,
       // stroke: theme.icon.color.accent,
-      fill: xml?.color,
-      stroke: xml?.color,
+      fill: xml?.color ?? theme?.icon?.color?.accent,
+      stroke: xml?.color ?? theme?.icon?.color?.accent,
     };
-  }, [xml?.color]);
+  }, [xml?.color, theme]);
   if (!iconState) return null;
   return (
     <View style={styled.container}>

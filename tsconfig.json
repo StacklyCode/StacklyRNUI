@@ -24,17 +24,24 @@
     "isolatedModules": true,
 
     "paths": {
-      // "@ixulabs/nativeui": ["index.ts"],
       "@atoms": ["./core/@atoms/index.ts"],
       "@atoms/*": ["./core/@atoms/*"],
       // "components/*": ["src/components/*"],
       // "context/*": ["src/context/*"],
       // "gql/*": ["src/gql/*"],
-      "~types/*": ["./core/types/*"],
+      "~types/*": ["core/themes/types/*"],
       "~utils/*": ["./core/utils/*"]
     }
   },
-  "include": ["**/*", "**/*x", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "index.d.ts",
+    "index.js",
+    "theme.d.ts",
+    "**/*",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.d.ts"
+  ],
   "exclude": [
     "node_modules",
     "../../node_modules",

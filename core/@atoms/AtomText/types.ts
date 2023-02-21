@@ -1,7 +1,7 @@
 import { TextProps } from "react-native";
 import { FlattenSimpleInterpolation } from "styled-components";
 // import { ThemeColor } from "~/themes/types";
-import { CSS } from "../../types";
+import { CSS } from "../../themes/types";
 
 type AtomTextKeys = "text" | "button" | "button-outline";
 

@@ -26,15 +26,19 @@
     "prebuild": "node ./tools/copyFile.js",
     "build": "rollup -c",
     "postbuild": "node ./tools/delete.js && node ./tools/movebuildfile.js",
+    "darkMode": "adb shell \"cmd uimode night yes\"",
+    "ligthMode": "adb shell \"cmd uimode night no\"",
     "test": "npm run prebuild && rollup -c && npm run postbuild"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-native-community/datetimepicker": "^6.7.5",
     "expo": "~47.0.12",
     "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",
     "expo-system-ui": "^2.0.1",
     "formik": "^2.2.9",
+    "jotai": "^2.0.2",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
@@ -43,7 +47,8 @@
     "react-native-reanimated": "^2.14.4",
     "react-native-svg": "^13.8.0",
     "react-native-web": "~0.18.9",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "xstate": "^4.36.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
